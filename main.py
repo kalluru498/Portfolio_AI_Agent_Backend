@@ -13,6 +13,10 @@ app.add_middleware(
     allow_headers=["*"],
 )
 
+@app.get("/")
+def root():
+    return {"message": "AI Agent backend is running."}
+
 @app.post("/update")
 async def update_portfolio(request: Request):
     data = await request.json()
